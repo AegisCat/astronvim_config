@@ -6,9 +6,10 @@ return {
     -- overrides `require("mason-lspconfig").setup(...)`
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
-      opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
-        -- "lua_ls",
-      })
+      opts.ensure_installed = require("astronvim.utils").list_insert_unique(
+        opts.ensure_installed,
+        { "lua_ls", "tsserver", "eslint", "cssls", "custom_elements_ls" }
+      )
     end,
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
@@ -18,8 +19,15 @@ return {
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
-        -- "prettier",
-        -- "stylua",
+        "eslint_d",
+        "jsonlint",
+        "markdowlint",
+        "quick-lint-js",
+        "fixjson",
+        "prettierd",
+        "luacheck",
+        "stylua",
+        "markdownlint",
       })
     end,
   },
@@ -28,9 +36,8 @@ return {
     -- overrides `require("mason-nvim-dap").setup(...)`
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
-      opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
-        -- "python",
-      })
+      opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, { "chrome" })
+      opts.automatic_installation = true
     end,
   },
 }
